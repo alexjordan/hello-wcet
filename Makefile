@@ -15,7 +15,7 @@ SIMOPTS=--gtime 0
 CYCLE_CHECK=ruby -rsyck -e 'c = File.open(ARGV[0]){|yf|Syck::parse(yf)}.select("/timing/*/cycles")[0].value; (print("Unexpected WCET: ",c,"\n"); exit 1) unless (200..700).include? c.to_i'
 
 .PHONY: all run run-print run-noprint clean check
-.PRECIOUS: %.pml %.elf
+.PRECIOUS: %.pml hello%.elf
 
 all: hello.fail.wca hello.wca
 

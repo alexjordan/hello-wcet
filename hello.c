@@ -6,22 +6,20 @@
 #include <machine/patmos.h>
 
 const char FOO[] = "Hello world.";
-volatile int bar;
+volatile int count = 12;
+volatile int output;
 
 int main(int argc, char **argv) {
-  int i, z;
+  int i;
 
-  z = (int) get_cpuid();
-
-  __llvm_pcmarker(0);
-  for (i = 0; i < z; ++i) {
-    __llvm_pcmarker(1);
+  _Pragma("loopbound min 0 max 12")
+  for (i = 0; i < count; ++i) {
 
 #ifndef NOPRINT
     putchar(FOO[i % sizeof(FOO)]);
 #endif
 
-    bar = FOO[i % sizeof(FOO)];
+    output = FOO[i % sizeof(FOO)];
   }
 
 #ifndef NOPRINT

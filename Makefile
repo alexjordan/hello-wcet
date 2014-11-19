@@ -17,7 +17,7 @@ CYCLE_CHECK=ruby -rsyck -e 'c = File.open(ARGV[0]){|yf|Syck::parse(yf)}.select("
 .PHONY: all run run-print run-noprint clean check
 .PRECIOUS: %.pml hello%.elf
 
-all: hello.fail.wca hello.wca
+all: hello.wca
 
 # build program and serialize program information in a PML file
 hello%.elf: hello.c

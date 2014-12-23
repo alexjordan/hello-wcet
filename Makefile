@@ -3,6 +3,7 @@ PASIM=pasim
 PLATIN=platin
 A3=a3patmos
 
+CFLAGS=-O1
 PLATINOPTS=--stats --verbose
 RUN_WCA=--enable-wca --disable-ait
 RUN_AIT=--a3-command $(A3)
